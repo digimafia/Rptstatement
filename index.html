@@ -85,5 +85,45 @@
         <a href="rpt_statement.html">RPT Travels</a>
         <a href="mpt_statement.html">MPT Travels</a>
     </div>
+    <!-- Add Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+
+<script>
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // Handle form submission
+  document.getElementById('reportForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      description: document.getElementById('description').value,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      await db.collection('reports').add(formData);
+      alert('Report submitted successfully!');
+      document.getElementById('reportForm').reset();
+    } catch (error) {
+      console.error('Error submitting report:', error);
+      alert('Error submitting report. Please try again.');
+    }
+  });
+</script>
 </body>
 </html>
