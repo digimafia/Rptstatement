@@ -1,20 +1,74 @@
 <!DOCTYPE html>
-<html><head><title>Statement Entry</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Statement</title>
+    <style>
+        /* Background with gradient */
+        body {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
 
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button Styles */
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 8px;
+            background: white;
+            color: #ff4d6d;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+        }
+
+        a:hover {
+            background: #ff4d6d;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            a {
+                font-size: 1.2rem;
+                padding: 10px 25px;
+            }
+        }
+    </style>
 </head>
-<body onload="setup(); setInterval('draw();',30);">
-
-<style>
-body { background:#000; color:#FFF; }
-a {
-color: white;
-}
-</style>
-
-<h1>Collection Statement</h1>
-<h2 ><a href="rpt_statement.html">RPT Travels</a></h2>
-<h2 ><a href="mpt_statement.html">MPT Travels</a></h2>
-
-
+<body>
+    <h1>Collection Statement</h1>
+    <div class="link-container">
+        <a href="rpt_statement.html">RPT Travels</a>
+        <a href="mpt_statement.html">MPT Travels</a>
+    </div>
 </body>
 </html>
