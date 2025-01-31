@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madurai Pandian Travels</title>
+    <title>RP Tours & Travels</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    
 </head>
 <body>
     <div class="container">
         <div class="header text-center">
-            <h2><span class="no-print">🚌</span> Madurai Pandian Travels <span class="no-print">💸</span></h2>
+            <h4><span class="no-print">🚌</span> RP Tours & Travels <span class="no-print">💸</span></h4>
             <div class="print-title">Ans Travels Official Statement</div>
         </div>
 
-        <!-- Header Fields - Horizontal Stack in Print -->
-        <div class="row mt-3 d-flex flex-row print-horizontal">
-            <div class="col-md-4">
-                <label class="form-label">📅 Date</label>
-                <input type="date" class="form-control" id="date">
-            </div>
-            <div class="col-md-4">
-                <label class="form-label">🚛 Vehicle No & Time</label>
-                <input type="text" class="form-control" id="vehicleNo">
-            </div>
-            <div class="col-md-4">
-                <label class="form-label">👤 Staff</label>
-                <input type="text" class="form-control" id="staff">
-            </div>
+   
+                <!-- Date & Vech Info - Table Format & Centered -->
+        <div class="container mt-3">
+            <table class="table table-bordered text-center print-table">
+                <thead>
+                    <tr>
+                        <th>                <label class="form-label">📅 Date</label>
+                <input type="date" class="form-control" id="date"></th>
+                        <th>  <label class="form-label">🚛 Vehicle No & Time</label>
+                <input type="text" class="form-control" id="vehicleNo"></th>
+                        <th>                <label class="form-label">👤 Staff</label>
+                <input type="text" class="form-control" id="staff"></th>
+                    </tr>
+                </thead>
+                
+            </table>
         </div>
 
         <!-- Seat Info - Table Format & Centered -->
@@ -72,7 +73,7 @@
 
 <!-- Collection Summary -->
 <div class="summary-card">
-    <h4>💰 Collection Summary</h4>
+    <h3>💰 Collection Summary</h3>
     <div class="row">
         <div class="col-sm-4 col-12 mb-3">
             <p>Manual Collection: ₹<span id="manualCollection">0</span></p>
@@ -87,8 +88,6 @@
         </div>
         <div class="col-sm-4 col-12 mb-3">
             <p>Advance: ₹<input type="number" id="advance" class="form-control"></p>
-            <p>Total Commission: ₹<span id="totalCommission">0</span></p>
-            <p>Balance: ₹<span id="balance">0</span></p>
         </div>
     </div>
 </div>
