@@ -12,11 +12,18 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            flex-direction: column;
+        }
+
+        /* Logo Styling */
+        .logo {
+            width: 120px; /* Adjust size */
+            height: auto;
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -61,11 +68,19 @@
                 font-size: 1.2rem;
                 padding: 10px 25px;
             }
+
+            .logo {
+                width: 90px; /* Smaller logo on mobile */
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Logo -->
+    <img src="logo.png" alt="Travel Logo" class="logo">
+
     <h1>Collection Statement</h1>
+
     <div class="link-container">
         <a href="rpt_statement.html">RPT Travels</a>
         <a href="mpt_statement.html">MPT Travels</a>
