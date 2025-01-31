@@ -85,19 +85,19 @@
         <a href="rpt_statement.html">RPT Travels</a>
         <a href="mpt_statement.html">MPT Travels</a>
     </div>
-    <!-- Add Firebase SDK -->
+    <!-- Add before </body> -->
 <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
 
 <script>
-  // Your Firebase config
+  // Replace with your actual config from Firebase
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyABCD...",
+    authDomain: "your-project.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-project.appspot.com",
+    messagingSenderId: "1234567890",
+    appId: "1:1234567890:web:abc123..."
   };
 
   // Initialize Firebase
@@ -108,7 +108,7 @@
   document.getElementById('reportForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const formData = {
+    const reportData = {
       name: document.getElementById('name').value,
       phone: document.getElementById('phone').value,
       description: document.getElementById('description').value,
@@ -116,12 +116,12 @@
     };
 
     try {
-      await db.collection('reports').add(formData);
+      await db.collection('reports').add(reportData);
       alert('Report submitted successfully!');
       document.getElementById('reportForm').reset();
     } catch (error) {
-      console.error('Error submitting report:', error);
-      alert('Error submitting report. Please try again.');
+      console.error('Error:', error);
+      alert('Submission failed. Please try again.');
     }
   });
 </script>
