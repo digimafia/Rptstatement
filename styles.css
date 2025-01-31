@@ -47,7 +47,7 @@ input[type="number"], input[type="text"], input[type="date"] {
     body {
         background: white !important;
         color: black !important;
-        font-size: 12px !important;
+        font-size: 10px !important;
         padding: 10px !important;
     }
 
@@ -56,71 +56,85 @@ input[type="number"], input[type="text"], input[type="date"] {
     }
 
     .header {
-        font-size: 16px !important;
-        padding: 10px !important;
+        font-size: 10px !important;
+        padding: 8px !important;
         text-align: center !important;
+        color: black;
     }
 
     .table {
         width: 100%;
-        font-size: 12px;
+        font-size: 10px;
+        color: black;
         border-collapse: collapse;
     }
 
     .table th, .table td {
         padding: 6px !important;
-        font-size: 11px !important;
-        text-align: left;
-        border: 1px solid #ddd;
+        font-size: 12px !important;
+        text-align: center;
+        font-style: bold;
+        border: 1px solid lightgrey;
     }
 
     .table th {
         background-color: #3498db;
-        color: white;
+        color: black;
         font-weight: bold;
+        font-size: 10px;
     }
 
     .total-row {
         background-color: #3498db;
-        color: white;
+        color: red;
         font-weight: bold;
+        font-size: 12px;
     }
 
     .summary-card {
         margin-top: 15px;
         padding: 10px;
+        text-align: center;
+        color: blue;
+        font-weight: bold;
+        font-size: 14px;
     }
 
     .summary-card h4 {
-        font-size: 14px !important;
+        font-size: 14px !importan ;
         margin-bottom: 10px;
+        font-style: bold;
+        color: red;
+    
     }
 
-    .summary-card .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
 
     .summary-card .col {
-        width: 45%;
+        width: 100%;
         margin-bottom: 5px;
+        text-align: center;
+        font-size: 12px;
     }
 
     .summary-card .col p {
         font-size: 12px;
         margin: 5px 0;
+        text-align: center;
+        color: blue;
     }
 
     input {
         border: none !important;
         text-align: center !important;
-        font-size: 12px;
-        width: 100%;
+        font-size: 12px; !important
+        color: green;
     }
 
     .total-row td {
         text-align: center;
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
     }
 
     @page {
