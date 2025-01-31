@@ -3,291 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travels Statement Calculator</title>
+    <title>Madurai Pandian Travels</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-        }
-
-        .statement-heading {
-            background: var(--primary-color);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .route-select {
-            min-width: 180px;
-            background: var(--secondary-color);
-            color: white;
-            border-radius: 5px;
-            padding: 8px;
-        }
-
-        .table thead {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .col-route {
-            width: 30%;
-            min-width: 200px;
-        }
-
-        .col-tickets {
-            width: 20%;
-        }
-
-        .col-price {
-            width: 15%;
-        }
-
-        .col-total {
-            width: 15%;
-        }
-
-        .total-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-custom {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-
-        .print-header {
-            display: none;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        @media print {
-            .no-print, button {
-                display: none !important;
-            }
-            .print-header {
-                display: block !important;
-            }
-            .table thead {
-                background: #2c3e50 !important;
-            }
-            .col-price, .col-total {
-                width: 15% !important;
-            }
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
+    
 </head>
 <body>
-    <div class="container py-5">
-        <!-- Print Header -->
-        <div class="print-header">
-            <h2 id="printAgencyName">RP Tours and Travels</h2>
-            <p>Statement Date: <span id="printDate"></span></p>
-            <p>Vehicle No: <span id="printVehicle"></span></p>
-            <p>Staff Name: <span id="printStaff"></span></p>
+    <div class="container">
+        <div class="header text-center">
+            <h2><span class="no-print">🚌</span> Madurai Pandian Travels <span class="no-print">💸</span></h2>
+            <div class="print-title">Ans Travels Official Statement</div>
         </div>
 
-        <!-- Input Section -->
-        <div class="no-print mb-4">
-            <div class="d-flex flex-wrap gap-3 mb-3">
-                <select id="agencySelect" class="form-select bg-primary text-white">
-                
-                    <option>RP Tours and Travels</option>
-               
-                </select>
-                <input type="date" id="statementDate" class="form-control">
-                <input type="text" id="vehicleNo" class="form-control" placeholder="Vehicle Number">
-                <input type="text" id="staffName" class="form-control" placeholder="Staff Name">
-                <button class="btn-custom" onclick="addNewRow()">Add New Row</button>
+        <!-- Header Fields - Horizontal Stack in Print -->
+        <div class="row mt-3 d-flex flex-row print-horizontal">
+            <div class="col-md-4">
+                <label class="form-label">📅 Date</label>
+                <input type="date" class="form-control" id="date">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">🚛 Vehicle No & Time</label>
+                <input type="text" class="form-control" id="vehicleNo">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">👤 Staff</label>
+                <input type="text" class="form-control" id="staff">
             </div>
         </div>
 
-        <!-- Main Table -->
-        <div class="printable-area">
-            <table class="table table-hover" id="statementTable">
+        <!-- Seat Info - Table Format & Centered -->
+        <div class="container mt-3">
+            <table class="table table-bordered text-center print-table">
                 <thead>
                     <tr>
-                        <th class="col-route">Route</th>
-                        <th class="col-tickets">Manual Tickets</th>
-                        <th class="col-price">Price</th>
-                        <th class="col-total">Total</th>
+                        <th>💺 Online Seats</th>
+                        <th>🎫 Manual Seats</th>
+                        <th>🪑 Vacant Seats</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            <select class="route-select">
-                                <option>Madurai</option>
-                                <option>Trichy</option>
-                                <option>Kottampatti</option>
-                                <option>Melur</option>
-                            <option>Perambalur</option>   
-                                <option>Veralimalai</option>
-                                <option>Ulundhurpettai</option>
-                                <option>Veppur</option>
-                                <option>Tholudhur</option>
-                                <option>Villupuram</option>
-                            </select>
-                        </td>
-                        <td><input type="number" class="form-control tickets" min="0"></td>
-                        <td><input type="number" class="form-control price" min="0"></td>
-                        <td><input type="number" class="form-control total" readonly></td>
+                        <td><input type="number" class="form-control text-center online-seat"></td>
+                        <td><input type="number" class="form-control text-center manual-seat"></td>
+                        <td><input type="number" class="form-control text-center vacant-seat"></td>
                     </tr>
                 </tbody>
             </table>
+        </div>
 
-            <!-- Calculation Section -->
-            <div class="total-section mt-5">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="mb-3">Calculation Summary</h4>
-                        <div class="d-flex flex-column gap-2">
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold">Total Amount:</span>
-                                <span>₹<span id="grandTotal">0.00</span></span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold">Online Collection:</span>
-                                <span>₹<input type="number" id="onlineCollection" class="form-control form-control-sm" style="width: 120px"></span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold">Online Commission (5%):</span>
-                                <span>₹<span id="onlineCommission">0.00</span></span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold">Commission (10%):</span>
-                                <span>₹<span id="commission">0.00</span></span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold">PC Amount:</span>
-                                <span>₹<input type="number" id="pcAmount" class="form-control form-control-sm" style="width: 120px"></span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold">Advance Paid:</span>
-                                <span>₹<input type="number" id="advance" class="form-control form-control-sm" style="width: 120px"></span>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between fs-5">
-                                <span class="fw-bold">Balance Amount:</span>
-                                <span class="text-success fw-bold">₹<span id="balance">0.00</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Route Table -->
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered" id="routeTable">
+                <thead class="table-dark">
+                    <tr><th>Route</th><th>Manual Tickets</th><th>Price</th><th>Total Amount</th></tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td>Total</td>
+                        <td id="totalTickets">0</td>
+                        <td></td>
+                        <td id="totalAmount">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-sm btn-success add-row-btn" onclick="addRow()">➕ Add Route</button>
+        </div>
+
+<!-- Collection Summary -->
+<div class="summary-card">
+    <h4>💰 Collection Summary</h4>
+    <div class="row">
+        <div class="col-sm-4 col-12 mb-3">
+            <p>Manual Collection: ₹<span id="manualCollection">0</span></p>
+            <div class="online-section">
+                <p>Online Collection: ₹<input type="number" id="onlineCollection" class="form-control"></p>
+                <p>Online Commission (5%): ₹<span id="onlineCommission">0</span></p>
+            </div>
+        </div>
+        <div class="col-sm-4 col-12 mb-3">
+            <p>Manual Commission (10%): ₹<span id="manualCommission">0</span></p>
+            <p>PC Amount: ₹<input type="number" id="pcAmount" class="form-control"></p>
+        </div>
+        <div class="col-sm-4 col-12 mb-3">
+            <p>Advance: ₹<input type="number" id="advance" class="form-control"></p>
+            <p>Total Commission: ₹<span id="totalCommission">0</span></p>
+            <p>Balance: ₹<span id="balance">0</span></p>
+        </div>
+    </div>
+</div>
+
+            <div class="total-row p-2">
+                <p>Total Commission: ₹<span id="totalCommission">0</span></p>
+                <p>Balance: ₹<span id="balance">0</span></p>
             </div>
         </div>
 
         <!-- Action Buttons -->
-        <div class="no-print mt-4 d-flex gap-3">
-            <button class="btn-custom" onclick="generatePDF()">Print as PDF</button>
-            <button class="btn-custom" onclick="sendWhatsApp()">Send to WhatsApp</button>
+        <div class="text-center mb-3">
+            <button class="btn btn-primary print-btn" onclick="preparePrint()">🖨️ Print Statement</button>
+            <button class="btn btn-success whatsapp-btn" onclick="shareWhatsApp()">💬 Send via WhatsApp</button>
         </div>
     </div>
 
-    <script>
-        // Calculation Logic
-        function updateCalculations() {
-            let grandTotal = 0;
-            
-            document.querySelectorAll('#statementTable tbody tr').forEach(row => {
-                const tickets = parseFloat(row.querySelector('.tickets').value) || 0;
-                const price = parseFloat(row.querySelector('.price').value) || 0;
-                const total = tickets * price;
-                
-                row.querySelector('.total').value = total.toFixed(2);
-                grandTotal += total;
-            });
-
-            const onlineCollection = parseFloat(document.getElementById('onlineCollection').value) || 0;
-            const onlineCommission = onlineCollection * 0.05;
-            const commission = grandTotal * 0.10;
-            const pcAmount = parseFloat(document.getElementById('pcAmount').value) || 0;
-            const advance = parseFloat(document.getElementById('advance').value) || 0;
-            const balance = grandTotal - commission - onlineCommission - pcAmount - advance;
-
-            document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
-            document.getElementById('onlineCommission').textContent = onlineCommission.toFixed(2);
-            document.getElementById('commission').textContent = commission.toFixed(2);
-            document.getElementById('balance').textContent = balance.toFixed(2);
-        }
-
-        // Row Management
-        function addNewRow() {
-            const newRow = document.querySelector('#statementTable tbody tr').cloneNode(true);
-            newRow.querySelectorAll('input').forEach(input => input.value = '');
-            document.querySelector('#statementTable tbody').appendChild(newRow);
-            
-            newRow.querySelectorAll('input').forEach(input => {
-                input.addEventListener('input', updateCalculations);
-            });
-        }
-
-        // Print/PDF Generation
-        function generatePDF() {
-            updatePrintHeader();
-            window.print();
-        }
-
-        // WhatsApp Integration
-        function sendWhatsApp() {
-            updatePrintHeader();
-            const message = `📊 ${document.getElementById('agencySelect').value}\n\n` +
-                `📅 Date: ${document.getElementById('statementDate').value}\n` +
-                `🚚 Vehicle No: ${document.getElementById('vehicleNo').value}\n` +
-                `👤 Staff Name: ${document.getElementById('staffName').value}\n\n` +
-                `💰 Total Amount: ₹${document.getElementById('grandTotal').textContent}\n` +
-                `💳 Online Collection: ₹${document.getElementById('onlineCollection').value}\n` +
-                `📉 Commission (10%): ₹${document.getElementById('commission').textContent}\n` +
-                `💻 Online Commission (5%): ₹${document.getElementById('onlineCommission').textContent}\n` +
-                `📄 PC Amount: ₹${document.getElementById('pcAmount').value}\n` +
-                `💵 Advance Paid: ₹${document.getElementById('advance').value}\n` +
-                `✅ Balance Amount: ₹${document.getElementById('balance').textContent}`;
-
-            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        // Header Updates
-        function updatePrintHeader() {
-            document.getElementById('printAgencyName').textContent = 
-                document.getElementById('agencySelect').value;
-            document.getElementById('printDate').textContent = 
-                document.getElementById('statementDate').value;
-            document.getElementById('printVehicle').textContent = 
-                document.getElementById('vehicleNo').value;
-            document.getElementById('printStaff').textContent = 
-                document.getElementById('staffName').value;
-        }
-
-        // Event Listeners
-        document.querySelectorAll('input, select').forEach(element => {
-            element.addEventListener('input', updateCalculations);
-        });
-        
-        document.getElementById('agencySelect').addEventListener('change', updatePrintHeader);
-        document.getElementById('vehicleNo').addEventListener('input', updatePrintHeader);
-        document.getElementById('staffName').addEventListener('input', updatePrintHeader);
-        document.getElementById('statementDate').addEventListener('input', updatePrintHeader);
-        document.getElementById('onlineCollection').addEventListener('input', updateCalculations);
-
-        // Initial Calculation
-        updateCalculations();
-        updatePrintHeader();
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
